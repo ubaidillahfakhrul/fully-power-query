@@ -1,0 +1,8 @@
+#query distinct name of cluster
+let
+    Source = table_reference,
+    Keep = Table.SelectColumns(Source, {"Cluster"}),
+    Distinct = Table.Distinct(Keep),
+    Sorted = Table.Sort(Distinct, {{"Cluster", Order.Ascending}})
+in
+    Sorted
