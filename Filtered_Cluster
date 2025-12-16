@@ -1,0 +1,7 @@
+#Filter cluster base on parameter = Select_Cluster (from excel cell)
+
+let
+    Source = Site_Reference_BalNus,
+    Filtered = Table.SelectRows(Source, each List.Contains(Select_Cluster, [Cluster]))
+in
+    Filtered
